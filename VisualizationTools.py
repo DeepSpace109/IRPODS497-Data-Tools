@@ -25,7 +25,7 @@ class VisualizationTools(Utils.Utils):
         displays a plot
         returns True
         """
-        relevantData = self.filterDataBy('tif_year',year)
+        relevantData = self.select('tif_year',year)
 
         xs = relevantData[xvar].tolist() 
         ys = relevantData[yvar].tolist()
@@ -46,7 +46,7 @@ class VisualizationTools(Utils.Utils):
         """
         if yvar not in self.moneyTypes():
             return False
-        relevantData = self.filterDataBy('tif_name',distName)
+        relevantData = self.select('tif_name',distName)
         xs = relevantData['tif_year'].tolist()
         ys = relevantData[yvar].tolist()
 
