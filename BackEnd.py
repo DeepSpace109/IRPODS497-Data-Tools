@@ -7,3 +7,5 @@ class BackEnd:
     def getDataTypes(self):
         return list(self.df.columns)
     
+    def getDF(self):
+        return self.df
