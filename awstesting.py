@@ -2,28 +2,38 @@ import pymysql
 import sys
 import boto3
 import os
+import mysql.connector
+from mysql.connector import Error
+import csv
+import json
 
-#declare connection variables
-ENDPOINT="the url to the database which can be found in the aws dashboard"
-PORT="3306"
-USER="Stock_John"
-REGION="us-east-1"
-DBNAME="do i need to have the correct name?"
-os.environ['LIBMYSQL_ENABLE_CLEARTEXT_PLUGIN'] = '1'
-
-#establish session
-session = boto3.Session(profile_name='default')
-client = session.client('rds')
-
-token = client.generate_db_auth_token(DBHostname=ENDPOINT, Port=PORT, DBUsername=USER, Region=REGION)
+#import secure read-only credentials to the database.
+with open('awscreds.csv', newline='') as csvfile:
+    spamreader = csv.reader(csvfile, delimiter=',', quotechar='|')
+    
+    for row in spamreader:
+        creds = (row)
 
 try:
-    conn = pymysql.connect(host=ENDPOINT, user=USER, passwd=token, port=PORT, database=DBNAME, ssl_ca='SSLCERTIFICATE')
-    cur = conn.cursor()
-    cur.execute("""DESCRIBE table_name """)
-    query_results = cur.fetchall()
-    print(query_results)
-except Exception as e:
-    print("Database connection failed due to {}".format(e))
+    conn = pymysql.connect(
+        host=creds[0],
+        user=creds[1],
+        password=creds[2],
+        database="chicago_TIF"
+    )   
+except pymysql.Error as e:
+    print(e)
+
+#Chicago_TIF capital C
+sql = "describe Chicago_TIF;"
+cursor = conn.cursor()
+cursor.execute(sql)
+results = cursor.fetchall()
+print(results)
+cursor.close()
+conn.commit()
+conn.close()
+
+
 
 

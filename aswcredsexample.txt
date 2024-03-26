@@ -1,0 +1,2 @@
+{store as .csv excluding this line}
+endpoint,usrname,psw
