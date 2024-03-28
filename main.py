@@ -1,11 +1,21 @@
 import pandas as pd
-import TIFDataTool
+import pymysql
+import csv
+from establishConnection import connect as cn
 
-tool = TIFDataTool.Tools('master_TIF_UPDATED.csv')
+#Chicago_TIF capital C
+getCols = "SHOW COLUMNS FROM Chicago_TIF;"
+"SELECT * FROM Chicago_TIF WHERE tif_name = '35th/Halsted';"
 
+conn = cn()
+cursor = conn.cursor()
 
-# tool.visualizeYear(2020, "tif_name", "property_tax_extraction")
-
-print(tool.getDataTypes())
-print(tool.df.to_string())
-# tool.plotDistrictFinancesOverTime("Cortland/Chicago River", "transfers_in")
+cursor.execute(getCols)
+results = cursor.fetchall()
+cols = []
+for each in results:
+    cols.append(each[0])
+print(cols)
+cursor.close()
+conn.commit()
+conn.close()
