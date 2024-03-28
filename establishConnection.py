@@ -9,7 +9,7 @@ def connect():
         
         for row in spamreader:
             creds = (row)
-
+    #TODO Create code to iterate through the read only accounts Nick will create to restrain database usage and regulate it.  
     #establish connection to DB and create cursor.
     try:
         conn = pymysql.connect(
