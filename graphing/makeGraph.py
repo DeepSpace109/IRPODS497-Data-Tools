@@ -1,6 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
-def makeBarGraph(table) -> None:
+def makeBarGraph(table,xname="",yname="") -> None:
 
     xs = []
     ys = []
@@ -10,6 +10,8 @@ def makeBarGraph(table) -> None:
         ys.append(rows[1])
     
     plt.bar(xs,ys, color="blue")
+    plt.xlabel(xname)
+    plt.ylabel(yname)
     plt.show()
 
 

@@ -1,2 +1,2 @@
-{store as .csv excluding this line}
+{store a .csv excluding this line, named "awscreds.csv"}
 endpoint,usrname,psw
