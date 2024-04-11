@@ -1,5 +1,7 @@
 import pymysql
 from utils.support.exe import exe
+from scipy.stats import linregress
+
 
 def getTable(cursor, xaxis,yaxis,sortBy,sortval) -> list | bool :
     """
@@ -16,6 +18,5 @@ def getTable(cursor, xaxis,yaxis,sortBy,sortval) -> list | bool :
     if xaxis == "tif_year":
         altTable = sorted(returnTable, key=lambda x: x[0], reverse=False)
         return altTable
-    
 
     return returnTable
