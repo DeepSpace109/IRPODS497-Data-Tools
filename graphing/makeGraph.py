@@ -1,7 +1,12 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
-def makeBarGraph(table,xname="",yname="") -> None:
+from scipy.stats import linregress
+
+def graph(table,xname="",yname="") -> None:
+    """
+    Takes a table, and returns a dictionary containing information about a linear regression of that plot.
+    """
 
     x = []
     y = []
@@ -15,6 +20,8 @@ def makeBarGraph(table,xname="",yname="") -> None:
     plt.ylabel(yname)
 
     plt.show()
+
+    return None
 
 
 

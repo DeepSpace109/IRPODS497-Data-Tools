@@ -1,6 +1,6 @@
 import pymysql
 from table.getTable import getTable
-from graphing.makeGraph import makeBarGraph as bg
+from graphing.makeGraph import graph as bg
 from utils.support.exe import exe as ex
 from utils.get.cols import cols as col
 

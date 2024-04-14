@@ -1,6 +1,6 @@
 import pymysql
 from table.getTable import getTable
-from graphing.makeGraph import makeBarGraph as bg
+from graphing.makeGraph import graph as bg
 
 def netIncomeByYear(cursor, tifname):
 
@@ -11,3 +11,5 @@ def netIncomeByYear(cursor, tifname):
         alteredTab.append([tab[idx][0],(tab[idx][1]-tab[idx-1][1])])
 
     bg(alteredTab,"Years after first year " + str(tab[0][0]), "Change in end of year balance since start year")
+
+    return alteredTab

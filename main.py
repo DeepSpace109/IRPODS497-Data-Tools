@@ -4,10 +4,11 @@ import csv
 from establishConnection import connect as cn
 from utils.get.cols import cols
 from table.getTable import getTable as tab
-from graphing.makeGraph import makeBarGraph as barGraph
+from graphing.makeGraph import graph as g
 from utils.get.netIncome import netIncomeByYear
 from utils.support.exe import exe as ex
 from utils.get.row import row
+from utils.get.avggrowth import avggrowth as ag
 
 #Chicago_TIF capital C
 "SELECT * FROM Chicago_TIF WHERE tif_name = '35th/Halsted';"
@@ -19,17 +20,21 @@ cursor = conn.cursor()
 #startup queries
 #TODO write these names to file so as to not need to query database for this info again
 
-print(tab(cursor,'tif_year','cumulative_property_tax_extraction','tif_name',"35th/Halsted"))
+# data = tab(cursor,'tif_year','cumulative_property_tax_extraction','tif_name',"35th/Halsted")
 
-barGraph(tab(cursor,'tif_year','cumulative_property_tax_extraction','tif_name',"35th/Halsted"))
 
-netIncomeByYear(cursor, '35th/Halsted')
+# g(data)
+
+datatab = tab(cursor,'tif_year','property_tax_extraction','tif_name',"35th/Halsted")
+print(datatab)
 
 # print(ex(cursor, "SELECT DISTINCT start_year FROM Chicago_TIF WHERE tif_name = '35th/Halsted';"))
 
-ret = row(cursor,'35th/Halsted',2021)
+# ret = row(cursor,'35th/Halsted',2021)
 
-print(ret)
+print(ag(datatab))
+
+
 
 
 
