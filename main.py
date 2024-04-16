@@ -23,6 +23,11 @@ cursor = conn.cursor()
 # data = tab(cursor,'tif_year','cumulative_property_tax_extraction','tif_name',"35th/Halsted")
 
 
+ret = ex(cursor, "SELECT DISTINCT tif_name FROM Chicago_TIF")
+
+tifNames = [x[0] for x in ret]
+print (tifNames)
+
 # g(data)
 
 datatab = tab(cursor,'tif_year','property_tax_extraction','tif_name',"35th/Halsted")
