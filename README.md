@@ -1,5 +1,5 @@
 <div>
-  <img align="right" width="140" height="140" src="images/project_logo.png" alt="Logo">
+  <img align="right" width="140" height="140" src="images/TeamLogo.png" alt="Logo">
 </div>
 
 ## This Repo is part of the TIFrific project for IPRO 497 at the Illinois Institute of Technology
