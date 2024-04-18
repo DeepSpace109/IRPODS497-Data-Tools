@@ -1,3 +1,7 @@
+<div>
+  <img align="right" width="140" height="140" src="images/project_logo.png" alt="Logo">
+</div>
+
 ## This Repo is part of the TIFrific project for IPRO 497 at the Illinois Institute of Technology
 # Improving Chicago’s Fiscal Transparency By Extracting Historical Financial Data Through a Machine Learning Pipeline
 
@@ -32,6 +36,10 @@ $ start notepad awscreds.csv
 `tifproject.cruoe42s86b2.us-east-2.rds.amazonaws.com,[YOUR_USERNAME],[YOUR_PASSWORD]`
 
 <p>From here, <i>establishConnection.py</i> will be used for the connections to the Database. Primarily, this is done through the main.py code</p>
+
+<div>
+  <img align="right" width="140" height="140" src="images/chart.webp" alt="Logo">
+</div>
 
 <h2>USING ANALYSIS TOOLS</h2>
 <p>The other part of this repo is a few tools we have for showing some basic graphs, charts and linear regressions.</p>
